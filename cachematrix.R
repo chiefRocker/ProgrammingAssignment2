@@ -2,7 +2,7 @@
 ## functions do
 
 ## Write a short comment describing this function
-
+## create, set and get matrix. set and get inverse
 makeCacheMatrix <- function(a = matrix()) {
 
   inv = NULL
@@ -20,6 +20,7 @@ makeCacheMatrix <- function(a = matrix()) {
 
 
 ## Write a short comment describing this function
+##check if inverse has been calculated. if yes, get cached. if no, calculate
 
 cacheSolve <- function(x, ...) {
   
@@ -27,13 +28,14 @@ cacheSolve <- function(x, ...) {
   
   inv = x$getinv()
   
-  
+  ##check if the inverse has been calculated yet
   if (!is.null(inv)){
     
     message("getting cached data")
     return(inv)
   }
   
+  ##if not, get calculate
   mat.data = x$get()
   inv = solve(mat.data, ...)
   
